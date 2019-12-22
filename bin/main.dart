@@ -4,16 +4,36 @@ import 'package:args/args.dart';
 
 void main(List<String> arguments) async{
 
-
+  /// Parse [arguments] from terminal
+  /// Create commands
   var cliParser = CliParser(arguments)
-    ..createCommand()
-    ..readCommand();
+    ..createCommand();
+  /// Read [arguments] and get a map
+  Map<String, dynamic> params = cliParser.readArgs()?? {};
 
-  GenDirs(cliParser.path);
+  if(params.isNotEmpty){
 
-  var test = await File('../lib/config/params.json').openRead();
-  print(test.first);
+    /// Removing old file
+    /// Create new file
+    /// Add [params['DESTINATION_FOLDER_PATH']]
+    /// Add [params['JSON_PATH']]
+    /// Close sink
+    await File('${Directory.current.path}/lib/config/save_paths.yaml').delete(recursive: true);
+    var yamlData = await File('${Directory.current.path}/lib/config/save_paths.yaml');
+    var sink = yamlData.openWrite(mode: FileMode.append);
+    sink.write("DESTINATION_FOLDER_PATH: '${params['DESTINATION_FOLDER_PATH']}'\n");
+    sink.write("JSON_PATH: '${params['JSON_PATH']}'");
+    await sink.flush();
+    await sink.close();
 
+    /// Generate the folder structure
+    GenDirs(params['DESTINATION_FOLDER_PATH']);
+
+    /// Read the json file
+    String jsonData = await File(params['JSON_PATH']).readAsStringSync();
+    var jsonMap = jsonDecode(jsonData);
+    print(jsonMap);
+  }
 }
 
 class CliParser{
@@ -21,22 +41,31 @@ class CliParser{
   ArgParser argParser = ArgParser();
   ArgResults argResults;
   List<String> arguments;
-  String path;
 
   CliParser(this.arguments);
 
   void createCommand() {
-    argParser.addFlag("pathlib",
-        abbr: "p",
-        help: "add your lib path to generate the BloCs pattern",
+    argParser.addFlag("destination",
+        abbr: "d",
+        help: "add your lib path to generate the folder structure",
         defaultsTo: false,
+    );
+
+    argParser.addFlag("params",
+      abbr: "p",
+      help: "add your json file path to generate the BloCs pattern",
+      defaultsTo: false,
     );
   }
 
-  void readCommand() {
+  readArgs() {
     argResults = argParser.parse(arguments);
-    if (argResults['pathlib'] && argResults.rest.isNotEmpty) {
-      path =  argResults.rest[0];
+    if (argResults['destination'] && argResults['params'] && argResults.rest.isNotEmpty) {
+      Map<String, dynamic> m = {
+        "DESTINATION_FOLDER_PATH" : argResults.rest[0],
+        "JSON_PATH" : argResults.rest[1]
+      };
+      return m;
     }
   }
 }
@@ -73,6 +102,14 @@ class GenDirs{
       }
     }
   }
+}
+
+class JsonParser{
+
+
+
+  JsonParser();
+
 }
 
 class BlocRouter{

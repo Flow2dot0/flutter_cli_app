@@ -1,4 +1,4 @@
 [
-  {"name" : "counter_bloc"},
-  {}
+  {"title" : "counter", "type" :  "<int>"},
+  {"title" : "text", "type" :  "<String>"}
 ]
