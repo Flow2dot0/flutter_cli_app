@@ -1,7 +1,3 @@
-class BlocProvider{
-
-  String toCompleteStarterBlocProvider() =>
-      '''
 import 'package:flutter/material.dart';
 import 'bloc.dart';
 
@@ -42,6 +38,4 @@ class _BlocProviderState extends State<BlocProvider>{
     widget.bloc.dispose();
     super.dispose();
   }
-}
-''';
 }

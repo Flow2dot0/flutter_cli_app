@@ -4,9 +4,11 @@ import 'package:cli/models/bloc.dart';
 import 'package:cli/models/bloc_provider.dart';
 import 'package:cli/models/bloc_screen.dart';
 import 'package:cli/models/cli_parser.dart';
-import 'package:cli/models/file_maker.dart';
 import 'package:cli/models/generate_directories.dart';
 import 'package:cli/models/main_bloc.dart';
+
+import '../lib/models/bloc_router.dart';
+import '../lib/models/file_maker.dart';
 
 void main(List<String> arguments) async{
 
@@ -68,6 +70,11 @@ void main(List<String> arguments) async{
         BlocProvider().toCompleteStarterBlocProvider(),
         params['DESTINATION_FOLDER_PATH']+'/blocs',
         'bloc_provider');
+
+    FileMaker().createDartFileAndWrite(
+        BlocRouter().toCompleteStarterBlocRouter(),
+        params['DESTINATION_FOLDER_PATH']+'/blocs',
+        'bloc_router');
 
     print("SUCCESSFULLY INSTALLED");
   }
