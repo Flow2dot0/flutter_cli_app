@@ -7,19 +7,23 @@ This project made to practise Dart2 command line apps
 ## Installation
 
 Download the zip folder : https://github.com/Flow2dot0/flutter_cli_app/archive/master.zip
+
 Decompress the zip where you want it doesn't matter.
 
 Watch for lib/config/params.json.
+
 Easy to implements :
 
 {"title" : "<PICK ONE>", "type" :  "<DEFINE A TYPE>"}
   
 Add as much as necessary.
+
 Save the file.
 
 Open your terminal.
 
 ``cd <THIS FOLDER PATH>``
+
 ``dart bin/main.dart -d <YOUR DESIRED LIB PROJECT FOLDER> -p <YOUR ABSOLUTE PATH OF PARAMS.JSON>``
 
 It will generate all the BLoC patterns.
