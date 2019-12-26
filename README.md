@@ -31,7 +31,7 @@ It will generate all the BLoC patterns.
 
 **Last stable version :** 1.0
 
-**Last version :** 1.0
+**Last version :** 1.0.0
 
 ## Author
 
