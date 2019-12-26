@@ -14,7 +14,7 @@ Watch for lib/config/params.json.
 
 Easy to implements :
 
-{"title" : "<PICK ONE>", "type" :  "<DEFINE A TYPE>"}
+{"title" : "PICK ONE, ex : activity", "type" :  "DEFINE A TYPE, ex : List<String>"}
   
 Add as much as necessary.
 
