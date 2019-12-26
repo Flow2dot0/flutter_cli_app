@@ -1,5 +1,4 @@
-# Flutter Bloc_cli
-
+# Flutter ``BLOC_CLI``
 Un projet permettant d'encoder et de décoder des fichiers et des chaînes de caractères.
 
 This project made to practise Dart2 command line apps 
