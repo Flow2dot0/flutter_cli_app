@@ -1,4 +1,4 @@
 [
-  {"title" : "counter", "type" :  "<int>"},
-  {"title" : "text", "type" :  "<String>"}
+  {"title" : "counter", "type" :  "Map<String, dynamic>"},
+  {"title" : "text", "type" :  "String"}
 ]
