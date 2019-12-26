@@ -29,9 +29,9 @@ It will generate all the BLoC patterns.
 
 ## Versions
 
-**Dernière version stable :** 1.0
+**Last stable version :** 1.0
 
-**Dernière version :** 1.0
+**Last version :** 1.0
 
 ## Author
 
