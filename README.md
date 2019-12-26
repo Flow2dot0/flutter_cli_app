@@ -1,7 +1,7 @@
 # Flutter ``BLOC_CLI``
 
 
-This project made to practise Dart2 command line apps 
+This project was made to practise Dart2 command line apps 
 
 ## Installation
 
