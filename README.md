@@ -1,4 +1,4 @@
-# Flutter ``BLOC_CLI``
+# Dart ``BLOC_CLI``
 
 
 This project was made to practise Dart2 command line apps 
